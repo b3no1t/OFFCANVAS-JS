@@ -19,7 +19,7 @@
              user-select: none;
            }
        }
-
+       
         @layer stylings {
           body {
            margin:.5em;
@@ -29,15 +29,12 @@
           text-align: right;
          }
          input[type="checkbox"] ~ label{
-          font-size: 50vw;
-          line-height: 1;
-          opacity: .25;
-          transition: opacity 0.25s ease-in;
+          font-size: 7rem;
           &:hover{
             opacity: 1;
            }
           &::after{
-            content:"🥳";
+            content:"◼";
           }
          }
 
@@ -51,7 +48,7 @@
            /* Si le checkbox est checked alors l'::after du <label> a cette regle  */
            input[type="checkbox"]:checked ~ label {
             &::after{
-              content:"🤮";
+              content:"▶";
              }
            }
         }
@@ -64,7 +61,7 @@
         <h1>Advanced Checkbox Hack</h1>
 
         <input type="checkbox" id="button" />
-        <label for="button" onclick></label>
+        <label for="button" onclick> </label>
 
       </div>
     </div>

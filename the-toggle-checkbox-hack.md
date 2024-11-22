@@ -16,7 +16,7 @@
 
   Due to a bug on iOS it's not possible to click the label
   to toggle the input (checkbox), so we add an empty
-  onclick to the label (L36):
+  `onclick` attribute to the label:
   ``<label for="button" onclick>click / touch</label>``
 
    2012 by Tim Pietrusky
