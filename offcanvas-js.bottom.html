@@ -6,77 +6,78 @@
 
  <title>OFFCANVAS JS</title>
  <style>
-
+  /* importation de la font 'Roboto Slab' hebergee sur google */
   @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
-
-  body{
+  body{ 
    font-family: 'Roboto Slab' ,serif;
    background: hsl(0, 0%, 90%);
+   /* overflow-x permet de cacher tout ce qui est en dehors de l'element body sur la droite et la gauche */
    overflow-x: hidden;
   }
-
   body.open button{
-   /* quand le body a la class 'open' alors le #trigger aura la couleur de blanc et z-index: 10 */
+   /* quand le body a la class 'open' alors le #trigger aura la couleur blanche et 'sera au 10eme plan de la scene' */
     color:  white;
     z-index: 10;
   }
   body.open h1{
+   /* si le body a la class 'open' alors le h1 aura la couleur rouge et 'sera au 10eme plan de la scene' */ 
    color:  red;
    z-index: 10;
   }
   body.open nav{
-   /* quand le body a la class 'open' alors le bottom de la nav passe de -100% a 0  */
+   /* quand le body a la class 'open' alors le bottom de la nav passe a 0, initialement elle etait a -100%  */
    bottom:0;
   }
-
   .container {
    width: 100%;
    max-width: 1024px;
    margin: 0 auto;
   }
-
   header {
    display: flex;
    justify-content: space-between;
    align-items: center;
   }
-
   header button {
    background: none;
    border: none;
    font-size: 2rem;
+   /* cursor: pointer, permet de changer le curseur de la souris */
    cursor: pointer;
-   z-index: auto;
+   /* z-index: 10 permet de positionner le `button` au 10eme plan de la scene */
+   z-index: 10;
   }
-
   nav {
    position: absolute;
    bottom: -100%;
    height: 100%;
    width: 100%;
+   /* overflow: hidden permet de cacher tout ce qui dépasse l'element nav */
    overflow: hidden;
    background: #313131;
    color: lightgray;
-
+   /* transition du bas vers le haut  de type slide de 0.35 seconde  */
    transition: bottom 0.35s cubic-bezier(0.76, 0, 0.24, 1);
   }
+  nav ul{
+    /*liste de la navigation*/
+    list-style: none;
+    padding: 0;
+    margin: 0;
+   }
   nav a{
+   /* lien de la navigation offcanvas */
    display: block;
    padding: 1rem;
    color: lightgray;
    font-size: 2rem;
    text-decoration: none;
    text-align: center;
+   /* hover permet de changer la couleur du lien quand on le survole */
    &:hover{
     color: lightblue;
    }
   }
-  nav ul{
-   list-style: none;
-   padding: 0;
-   margin: 0;
-  }
-
  </style>
 </head>
 <body>
@@ -99,29 +100,26 @@
   </div>
  </div>
  <script>
+  // Utilsez console.log() pour afficher dans la console du navigateur
+  // console.log(""); 
+  // entre les guillemets vous pouvez mettre n'importe quoi, notamment des objets
+  // C'est vital pour vous aider lors de l'investigation et la correction des bugs
 
-  // elment a cibler
+  // trigger permet de cibler l'element #trigger (span id="trigger")
   const trigger = document.getElementById("trigger");
+  // nav permet de cibler la balise <nav>
   const nav = document.querySelector("nav");
+  // body permet de cibler la balise <body>
   const body  = document.querySelector("body");
 
+  // DOMContentLoaded = à la fin du chargement du document html, on lance les instructions suivantes 
   window.addEventListener("DOMContentLoaded", (event) => {
-
+    // quand on clique sur le trigger, on ajoute la class 'open' au body
    trigger.addEventListener("click", (e) => {
     body.classList.toggle("open");
    });
 
   });
-
-/*
-  body.addEventListener("mouseover", (e) => {
-   event.target.style.color = "orange";
- });
-
-  body.addEventListener("mouseout", (e) => {
-   event.target.style.color = "black";
- });
-*/
  </script>
 </body>
 </html>
