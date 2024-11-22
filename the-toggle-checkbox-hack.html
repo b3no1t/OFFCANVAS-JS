@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Toggle Checkbox Hack</title>
+    <style>
+
+       @layer checkbox{
+           /* hide the checkbox */
+           input[type=checkbox] {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+           }
+
+           label {
+             cursor: pointer;
+             user-select: none;
+           }
+       }
+
+        @layer stylings {
+          body {
+           margin:.5em;
+           font: 1em sans-serif;
+         }
+         h1{
+          text-align: right;
+         }
+         input[type="checkbox"] ~ label{
+          font-size: 50vw;
+          line-height: 1;
+          opacity: .25;
+          transition: opacity 0.25s ease-in;
+          &:hover{
+            opacity: 1;
+           }
+          &::after{
+            content:"🥳";
+          }
+         }
+
+        }
+
+        @layer magic {
+           /* checked */
+           input[type="checkbox"]:checked ~ h1 {
+             background: hsla(120, 80%, 50%, 0.8);
+           }
+           /* Si le checkbox est checked alors l'::after du <label> a cette regle  */
+           input[type="checkbox"]:checked ~ label {
+            &::after{
+              content:"🤮";
+             }
+           }
+        }
+       
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <h1>Advanced Checkbox Hack</h1>
+
+        <input type="checkbox" id="button" />
+        <label for="button" onclick></label>
+
+      </div>
+    </div>
+  </body>
+</html>
