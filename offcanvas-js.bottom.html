@@ -12,7 +12,11 @@
    font-family: 'Roboto Slab' ,serif;
    background: hsl(0, 0%, 90%);
    /* overflow-x permet de cacher tout ce qui est en dehors de l'element body sur la droite et la gauche */
-   overflow-x: hidden;
+
+  }
+  body.open{
+    // bloque le scroll sur le body
+    overflow: hidden;
   }
   body.open button{
    /* quand le body a la class 'open' alors le #trigger aura la couleur blanche et 'sera au 10eme plan de la scene' */
@@ -30,8 +34,9 @@
   }
   .container {
    width: 100%;
-   max-width: 1024px;
+   max-width: 450px;
    margin: 0 auto;
+   overflow: hidden;
   }
   header {
    display: flex;
@@ -49,21 +54,24 @@
   }
   nav {
    position: absolute;
-   bottom: -100%;
+   bottom: -100vh;
    height: 100%;
-   width: 100%;
+   width: 100vw;
    /* overflow: hidden permet de cacher tout ce qui dépasse l'element nav */
    overflow: hidden;
    background: #313131;
    color: lightgray;
    /* transition du bas vers le haut  de type slide de 0.35 seconde  */
    transition: bottom 0.35s cubic-bezier(0.76, 0, 0.24, 1);
+   display: grid;
+   place-items: center;
   }
   nav ul{
     /*liste de la navigation*/
     list-style: none;
     padding: 0;
     margin: 0;
+ 
    }
   nav a{
    /* lien de la navigation offcanvas */
@@ -82,6 +90,14 @@
 </head>
 <body>
  <div class="wrapper">
+  <nav>
+    <ul class="menu">
+     <li><a href="#">item 1</a></li>
+     <li><a href="#">item 2</a></li>
+     <li><a href="#">item 3</a></li>
+     <li><a href="#">item 4</a></li>
+    </ul>
+   </nav>
   <div class="container">
    <header>
     <h1>LOGO</h1>
@@ -89,14 +105,11 @@
      <span id="trigger">&equiv; MENU</span>
     </button>
    </header>
-   <nav>
-    <ul class="menu">
-     <li><a href="#">nav 1</a></li>
-     <li><a href="#">nav 2</a></li>
-     <li><a href="#">nav 3</a></li>
-     <li><a href="#">nav 4</a></li>
-    </ul>
-   </nav>
+   <main>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima incidunt maiores voluptatem ab est eius blanditiis adipisci unde fuga suscipit id dolorum neque, consequatur aperiam eum at officiis. Perspiciatis, optio!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima incidunt maiores voluptatem ab est eius blanditiis adipisci unde fuga suscipit id dolorum neque, consequatur aperiam eum at officiis. Perspiciatis, optio!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima incidunt maiores voluptatem ab est eius blanditiis adipisci unde fuga suscipit id dolorum neque, consequatur aperiam eum at officiis. Perspiciatis, optio!</p>
+   </main>
   </div>
  </div>
  <script>
